@@ -1,0 +1,4 @@
+#changelist table thead th, #changelist table tbody td {
+	max-width: 50px;
+	white-space: normal;
+}

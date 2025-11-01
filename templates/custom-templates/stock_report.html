@@ -1,0 +1,256 @@
+{% extends 'admin/base.html' %} 
+{% load static %}
+{% block title %}Stock Report{% endblock %} 
+{% block content %}
+
+
+<div class="card card-info">
+    <div class="card-header">
+      <h3 class="card-title">Stock Report</h3>
+    </div>
+  </div>
+  <!-- /.card -->
+  <div class="card-body" style="overflow:auto">
+    
+    <form method="get">
+      {% csrf_token %}
+      <div class="row">
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Item</label>
+          <select name ='item' id= 'item' class="form-control select2bs4" style="width: 100%;">
+            <option value=''>-----</option>
+            {% for stockitem in listfttng %}
+            <option value={{stockitem.id}}>{{stockitem.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+          <div class="form-group">
+              <label style='margin-left: 43px;'>From Date:</label>
+                <div class="input-group date" data-target-input="nearest" >
+                    <input type="date" name ='fromdate' id="reservationdate"  style= "margin-left: 40px; width: 70%" data-target="#reservationdate" />
+                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                    </div>
+                </div>
+          </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+            <label style='margin-left: 18px;'>To Date:</label>
+              <div class="input-group date" data-target-input="nearest" >
+                  <input type="date"  style='margin-left: 20px;width: 70%'  name ='todate' id="reservationdate" data-target="#reservationdate" />
+                  <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                  </div>
+              </div>
+        </div>
+    </div>
+      
+        <div class="col-1">
+          <div class="form-group" style= "margin-top: 29px;">
+          {% comment %} {% bootstrap_button 'Filter' button_class="btn-secondary" %} {% endcomment %}
+          <button type="submit" class="btn btn-primary mr-3 mt-3 btn-block">Ok</button>
+          </div>
+        </div>
+        <div class="col-1" style= "margin-top: 12px;">
+          {% comment %} {% bootstrap_button 'Filter' button_class="btn-secondary" %} {% endcomment %}
+          <a href="{% url 'stockreport' %}" class="btn btn-secondary mr-3 mt-3 btn-block">Clear</a>
+        </div>
+      <!-- /.col -->
+    </div>
+  
+  </form>
+
+    <!-- /.row -->
+  </div>
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Sl.No</th>
+            <th>Fittings</th>
+            <th>Stock From</th>
+            <th>Stock To</th>
+            <th>Quantity</th>
+            <th>Is Auto</th>
+            <th>Remarks</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for srl in totalStockList %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{srl.fittingsStock}}</td>
+            <td>{{srl.stock_from}}</td>
+            <td>{{srl.stock_to}}</td>
+            <td>{{srl.quantity}}</td>
+            <td>{{srl.isauto}}</td>
+            <td>{{srl.remarks}}</td>
+            <td>{{srl.date}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+      {% with totalStockList|last as last %}
+        <tr>
+            <th>Closing Stock</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{last.closing_stock}}</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% endwith %}
+    </tfoot>
+</table>
+
+<!-- <p><b>Selected rows data:</b></p>
+<pre id="example-console-rows"></pre> -->
+
+<!-- </form> -->
+
+{% endblock %}
+
+{% block javascript %}
+<!-- jQuery -->
+<script src="/static/admin-lte/dist/js/adminlte.js"></script>
+<script src="{% static 'admin-lte/plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Select2 -->
+<script src="{% static 'admin-lte/plugins/select2/js/select2.full.min.js' %}"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="{% static 'admin-lte/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js' %}"></script>
+<link href="https://rawgit.com/select2/select2/master/dist/css/select2.min.css" rel="stylesheet"/>
+<script src="https://rawgit.com/select2/select2/master/dist/js/select2.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
+<!-- InputMask -->
+<script src="{% static 'admin-lte/plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'admin-lte/plugins/inputmask/jquery.inputmask.min.js' %}"></script>
+
+<script src="{% static 'admin-lte/plugins/daterangepicker/daterangepicker.js' %}"></script>
+
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'admin/css/stockreport.css' %}" />
+
+
+  {% comment %} <script src="{% static 'admin/js/stockreport.js' %}"></script> {% endcomment %}
+
+  <script type="text/javascript" charset="utf8" 
+  src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+  
+  <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+  <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  $('#example').dataTable({
+    "bPaginate": false
+});
+});
+
+$(document).ready(function () {
+  $(function () {
+  console.log('hello')
+  $('#item').select2({
+      matcher: function (params, data) {
+        if ($.trim(params.term) === '') {
+            return data;
+        }
+  
+        keywords=(params.term).split(" ");
+  
+        for (var i = 0; i < keywords.length; i++) {
+            if (((data.text).toUpperCase()).indexOf((keywords[i]).toUpperCase()) == -1) 
+            return null;
+        }
+        return data;
+    }
+  });
+})
+})
+
+
+
+$(function () {
+      //Initialize Select2 Elements
+    //   $('.select2').select2()
+
+    //   //Initialize Select2 Elements
+    //   $('.select2bs4').select2({
+    //     theme: 'bootstrap4'
+    //   })
+
+      //Datemask dd/mm/yyyy
+      $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+      //Datemask2 mm/dd/yyyy
+      $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+      //Money Euro
+      $('[data-mask]').inputmask()
+
+      //Date range picker
+    //   $('#reservationdate').datepicker();
+    $(document).ready(function() {
+          
+         /** $(function() {
+              $( "#reservationdate" ).datepicker();
+              $('.date-picker').on("click", function() {
+                $( "#reservationdate" ).datepicker('show');
+              })
+          });**/
+      })
+      //Date range picker
+    //   $('#reservation').daterangepicker()
+      //Date range picker with time picker
+      $('#reservationtime').daterangepicker({
+        timePicker: true,
+        timePickerIncrement: 30,
+        locale: {
+          format: 'MM/DD/YYYY hh:mm A'
+        }
+      })
+      //Date range as a button
+      $('#daterange-btn').daterangepicker(
+        {
+          ranges   : {
+            'Today'       : [moment(), moment()],
+            'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+            'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate  : moment()
+        },
+        function (start, end) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+        }
+      )
+
+      //Timepicker
+    //   $('#timepicker').datetimepicker({
+    //     format: 'LT'
+    //   })
+
+      //Bootstrap Duallistbox
+      $('.duallistbox').bootstrapDualListbox()
+
+      $("input[data-bootstrap-switch]").each(function(){
+        $(this).bootstrapSwitch('state', $(this).prop('checked'));
+      });
+
+    })
+
+
+</script>
+
+{% endblock %}

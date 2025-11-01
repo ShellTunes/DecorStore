@@ -1,0 +1,135 @@
+amqp==2.5.0
+anyio==3.6.1
+APScheduler==3.6.3
+arabic-reshaper==3.0.0
+asgiref==3.4.1
+autopep8==1.6.0
+backports.entry-points-selectable==1.1.0
+# backports.zoneinfo==0.2.1
+beautifulsoup4==4.10.0
+billiard==3.6.0.0
+# celery==4.3.0
+certifi==2019.6.16
+cffi==1.15.1
+chardet==3.0.4
+charset-normalizer==2.0.9
+click==8.0.1
+colorama==0.4.4
+coreapi==2.3.3
+coreschema==0.0.4
+cryptography==39.0.1
+cssselect2==0.7.0
+dataclasses==0.6
+distlib==0.3.2
+Django==2.2.2
+django-admin-autocomplete-filter==0.2
+django-admin-list-filter-dropdown==1.0.3
+# django-admin-multiple-choice-list-filter==0.1.1
+django-adminlte3==0.1.6
+django-advanced-filters==2.0.0
+django-appconf==1.0.3
+# django-celery-inspect==0.2.1
+django-cors-headers==3.0.2
+django-easy-select2==1.5.7
+django-filter==2.1.0
+django-image-optimizer==1.0.0
+django-imagekit==4.0.2
+django-multiselectfield==0.1.12
+django-optimized-image==0.2.0
+django-rest-swagger==2.2.0
+django-select2==7.10.0
+django-tinymce==2.8.0
+djangorestframework==3.9.4
+djangorestframework-jwt==1.11.0
+djangorestframework-link-header-pagination==0.1.1
+djangorestframework-simplejwt==4.3.0
+django-import-export==2.5.0
+djongo==1.2.33
+dnspython==1.16.0
+docopt==0.6.2
+fastapi==0.78.0
+filelock==3.0.12
+h11==0.13.0
+html5lib==1.1
+idna==2.8
+importlib-metadata==2.0.0
+isodatetimehandler==1.0.2
+itsdangerous==2.0.1
+itypes==1.1.0
+Jinja2==2.10.1
+Js2Py==0.71
+jsonpickle==1.4.1
+kombu==4.6.3
+# lxml==4.9.2
+mailchimp3==3.0.14
+Markdown==3.1.1
+MarkupSafe==1.1.1
+moesifapi==1.3.2
+moesifdjango==1.7.5
+moesifpythonrequest==0.2.0
+mysql==0.0.3
+mysqlclient==2.2.7
+nose==1.3.7
+num2words==0.5.12
+# numpy==1.22.1
+# openapi-codec==1.3.2
+packaging==21.3
+# pdfminer.six==20221105
+pdfplumber==0.8.0
+pilkit==2.0
+# Pillow==9.2.0
+pipenv==2021.11.23
+pipwin==0.5.1
+platformdirs==2.3.0
+pycodestyle==2.8.0
+pycparser==2.21
+pydantic==1.9.1
+pyjsparser==2.7.1
+PyJWT==1.7.1
+pymongo==4.1.1
+pyparsing==3.0.6
+pypdf2==2.9.0
+# PyPDF3==1.0.6
+PyPrind==2.11.3
+pySmartDL==1.3.4
+python-bidi==0.4.2
+python-dateutil==2.8.1
+python-dotenv==0.19.1
+# pytz==2019.1
+# pytz-deprecation-shim==0.1.0.post0
+reportlab==4.4.4
+requests==2.22.0
+simplejson==3.16.0
+six==1.12.0
+# sniffio==1.2.0
+sorl-thumbnail==12.5.0
+# soupsieve==2.3.1
+# SpeechRecognition==3.8.1
+sqlparse==0.2.4
+starlette==0.19.1
+stripe==2.30.1
+svglib==1.5.1
+# tinify==1.5.1
+# tinycss2==1.2.1
+# toml==0.10.2
+# tqdm==4.65.0
+typing-extensions==4.2.0
+# tzdata==2021.5
+tzlocal==2.1
+uritemplate==3.0.0
+urllib3==1.25.3
+# uvicorn==0.17.6
+vine==1.3.0
+virtualenv==20.7.2
+virtualenv-clone==0.5.7
+Wand==0.6.11
+webencodings==0.5.1
+Werkzeug==2.0.1
+whitenoise==6.2.0
+xhtml2pdf==0.2.6
+zipp==3.4.0
+# aspose-pdf
+django-ckeditor
+django-advanced-filters
+django-more-admin-filters
+xlwt

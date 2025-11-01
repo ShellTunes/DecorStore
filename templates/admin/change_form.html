@@ -1,0 +1,515 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+<script src="{% static 'admin-lte/plugins/jquery/jquery.min.js' %}"></script>
+<link href="https://rawgit.com/select2/select2/master/dist/css/select2.min.css" rel="stylesheet"/>
+<script src="https://rawgit.com/select2/select2/master/dist/js/select2.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
+{{ media }}
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />{% endblock %}
+
+{% block coltype %}colM{% endblock %}
+
+{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-form{% endblock %}
+
+{% if not is_popup %}
+{% block breadcrumbs %}
+
+<div class="row mb-2">
+    <div class="col-sm-4">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="col-sm-8">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{% url 'admin:index' %}"><i class="fas fa-tachometer-alt"></i>
+                {% trans 'Home' %}</a></li>
+        <li class="breadcrumb-item"><a
+                href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+        </li>
+        <li class="breadcrumb-item">
+            {% if has_change_permission %}<a
+                href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+        </li>
+
+        <li class="breadcrumb-item active">{% if add %}{% blocktrans with name=opts.verbose_name %}Add
+            {{ name }}{% endblocktrans %}{% else %}{{ original|truncatewords:"18" }}{% endif %}</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% block content %}
+<div id="content-main" class="container-fluid">
+    {% block object-tools %}
+    {% if change %}{% if not is_popup %}
+    <ul class="object-tools">
+        {% block object-tools-items %}
+        <li>
+            {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+            <a id="btn-history" href="{% add_preserved_filters history_url %}" class="btn btn-default btn-sm"><i
+                    class="fa fa-history"></i> {% trans "History" %}</a>
+        </li>
+        {% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% trans "View on site" %}</a>
+        </li>{% endif %}
+        {% endblock %}
+    </ul>
+    {% endif %}{% endif %}
+    {% endblock %}
+    {% block extra_js %}
+    <script>
+       
+        {% comment %} $(`input[id^=id_QuoteId-][id$=-Length]`, `input[id^=id_QuoteId-][id$=-Width]`).on('change', function(event) { 
+            console.log("WORKING ")
+        })
+
+        $(`select[id^=id_QuoteId][id$=-UnitOfMeasurement]`).on('change', function(event) {
+            console.log("WORKING Select")
+        }) {% endcomment %}
+
+
+    /// Handle Line Item Already Added Dynamically to DOM ////
+    $(document).on("click", function(e) {
+
+        const mmft_convert = 304.8
+        const inchft_convert = 12
+        const feet_convert = 1
+
+        $("input[id$='Total']").addClass('disabled');
+        $("input[id$='Total']").addClass('disabled');
+        
+
+
+        if(e.target.text == "Add another Line Items Glass"){
+            console.log("Selected Text ",$('#id_QuoteId-0-ItemMasterId').find(":selected").val())
+            glassitemid = 0
+            var glassselect2_id = $('.add-row a').parent().siblings('.inline-related.dynamic-QuoteId').length
+            console.log("select2 data ",glassselect2_id)
+            
+            var glassitemid = glassselect2_id -1
+            console.log("helloooooooo", glassitemid)
+            console.log("helloooooooo",$(`#id_QuoteId-${glassitemid}-ItemMasterId`).length)
+
+            var prefill_val = $(`#id_QuoteId-${glassitemid - 1}-ItemMasterId`).find(":selected").val()
+
+            $(`#id_QuoteId-${glassitemid}-ItemMasterId option[value="${prefill_val}"]`).attr("selected", "selected");
+            var glassnewdata = $(`#id_QuoteId-${glassitemid}-ItemMasterId`).select2({
+                matcher: function (params, data) {
+                    if ($.trim(params.term) === '') {
+                        return data;
+                    }
+        
+                    keywords=(params.term).split(" ");
+        
+                    for (var i = 0; i < keywords.length; i++) {
+                        if (((data.text).toUpperCase()).indexOf((keywords[i]).toUpperCase()) == -1) 
+                        return null;
+                    }
+                    return data;
+                }
+            });
+
+            var prefillunit_val = $(`#id_QuoteId-${glassitemid - 1}-UnitOfMeasurement`).find(":selected").val()
+            $(`#id_QuoteId-${glassitemid}-UnitOfMeasurement option[value="${prefillunit_val}"]`).attr("selected", "selected");
+
+            var prefillRate =  $(`#id_QuoteId-${glassitemid - 1}-Rate`).val()
+            $(`#id_QuoteId-${glassitemid}-Rate`).val(prefillRate)
+
+            console.log("RATE VAL : ", $("#id_QuoteId-0-Rate").val())
+
+
+            console.log("new dta", glassnewdata)   
+
+        }
+        if(e.target.text == "Add another Line Items Fitting"){
+            
+            fittingitemid = 0
+            var fittingselect2_id = $('.add-row a').parent().siblings('.inline-related.dynamic-Quoteid').length
+            console.log("select2 data ",fittingselect2_id)
+            
+            var fittingitemid = fittingselect2_id -1
+            console.log("fittingid", fittingitemid)
+            var prefillfitting_val = $(`#id_Quoteid-${fittingitemid - 1}-ItemMasterid`).find(":selected").val()
+
+            $(`#id_Quoteid-${fittingitemid}-ItemMasterid option[value="${prefillfitting_val}"]`).attr("selected", "selected");
+            var fittingnewdata = $(`#id_Quoteid-${fittingitemid}-ItemMasterid`).select2({
+                matcher: function (params, data) {
+                    if ($.trim(params.term) === '') {
+                        return data;
+                    }
+        
+                    keywords=(params.term).split(" ");
+        
+                    for (var i = 0; i < keywords.length; i++) {
+                        if (((data.text).toUpperCase()).indexOf((keywords[i]).toUpperCase()) == -1) 
+                        return null;
+                    }
+                    return data;
+                }
+            });
+           
+            var prefillRateid =  $(`#id_Quoteid-${fittingitemid - 1}-Rate`).val()
+            $(`#id_Quoteid-${fittingitemid}-Rate`).val(prefillRateid)
+            console.log("new dta", prefillRateid)   
+        }
+        if(e.target.text == "Add another Line Items Misc"){
+            
+            $('select[id^=id_Quote_id-][id$=-ItemMasterIdMisc]').change(function () {
+                var selectonmiscVal = $(this).find("option:selected").text();
+                console.log("SELECTED OPTION ", selectonmiscVal)
+                console.log('SELECTED OPTION new val', selectonmiscVal)
+                itemmisconid = $(this).attr('id')
+                console.log("SELECTED OPTION idid", itemmisconid)
+                itemmisconid = itemmisconid.split('-')
+                itemmisconid = itemmisconid[1]
+                selectonmiscVal = selectonmiscVal.toLowerCase();
+                console.log('data', selectonmiscVal)
+                if(selectonmiscVal == "installation"){
+                     console.log("SELECTED OPTION misc", (selectonmiscVal))
+                 
+                     $(`#id_Quote_id-${itemmisconid}-Quantity`).addClass('disabled');
+                }
+                else{
+                     $(`#id_Quote_id-${itemmisconid}-Quantity`).removeClass("disabled")
+                }
+             });   
+        }
+        $(`select[id^=id_QuoteId][id$=-UnitOfMeasurement]`).on('change', function(event) {
+            console.log("on change", event.target.id)
+            var currentunit_id = event.target.id;
+            var splitunit_id = currentunit_id.split("-")
+            var editunit_id = splitunit_id[1]
+            var unitOfMeasurement = $(`#id_QuoteId-${editunit_id}-UnitOfMeasurement`).val();
+            if ($(`#id_QuoteId-${editunit_id}-billedlength`).val() != ''){
+                var length = $(`#id_QuoteId-${editunit_id}-billedlength`).val();
+                length = unitOfMeasurement == 'mm' ? (length / mmft_convert)  : unitOfMeasurement == 'feet' ? length * feet_convert : (length / inchft_convert);
+                length = length.toFixed(2)
+                console.log('l', length)
+            }
+            else if($(`#id_QuoteId-${editunit_id}-billedlength`).val() == ''){
+                var length = $(`#id_QuoteId-${editunit_id}-Length`).val();
+                length = unitOfMeasurement == 'mm' ? Math.ceil((length / mmft_convert) / 0.5) * 0.5 : unitOfMeasurement == 'feet' ? length * feet_convert : Math.ceil((length / inchft_convert) / 0.5) * 0.5;
+                console.log('l', length)
+            }
+            if ($(`#id_QuoteId-${editunit_id}-billedwidth`).val() != ''){
+                var width = $(`#id_QuoteId-${editunit_id}-billedwidth`).val();
+                width = unitOfMeasurement == 'mm' ? (width / mmft_convert)  : unitOfMeasurement == 'feet' ? width * feet_convert : (width / inchft_convert);
+                width = width.toFixed(2)
+                console.log('w', width)
+            }
+            else if ($(`#id_QuoteId-${editunit_id}-billedwidth`).val() == ''){
+                var width = $(`#id_QuoteId-${editunit_id}-Width`).val();
+                width = unitOfMeasurement == 'mm' ? Math.ceil((width / mmft_convert) / 0.5) * 0.5 : unitOfMeasurement == 'feet' ? width * feet_convert : Math.ceil((width / inchft_convert) / 0.5) * 0.5;
+                console.log('w', width)
+            }
+            
+            var quantity = $(`#id_QuoteId-${editunit_id}-Quantity`).val();
+            var sum = Number(length) * Number(width) * Number(quantity)
+            $(`#id_QuoteId-${editunit_id}-Total`).val(sum)
+            console.log(width, length);
+            
+        });
+      
+        $('input').on('input', function (event) {
+                
+            var current_id = event.target.id;
+            var split_id = current_id.split("-")
+            console.log("CHANGING INPUT : ", split_id)
+            var edit_id = split_id[1]
+           
+            if (split_id[2] == "billedlength" || split_id[2] == "billedwidth" || split_id[2] == "Length" || split_id[2] == "Width" || split_id[2] == "Quantity") {
+                var unitOfMeasurement = $(`#id_QuoteId-${edit_id}-UnitOfMeasurement`).val();
+                if ($(`#id_QuoteId-${edit_id}-billedlength`).val() != ''){
+                    var length = $(`#id_QuoteId-${edit_id}-billedlength`).val();
+                    length = unitOfMeasurement == 'mm' ? (length / mmft_convert)  : unitOfMeasurement == 'feet' ? length * feet_convert : (length / inchft_convert);
+                    length = length.toFixed(2)
+                    console.log('l', length)
+                }
+                else{
+                    var length = $(`#id_QuoteId-${edit_id}-Length`).val();
+                    length = unitOfMeasurement == 'mm' ? Math.ceil((length / mmft_convert) / 0.5) * 0.5 : unitOfMeasurement == 'feet' ? length * feet_convert : Math.ceil((length / inchft_convert) / 0.5) * 0.5;
+                    console.log('l', length)
+                }
+                if ($(`#id_QuoteId-${edit_id}-billedwidth`).val() != ''){
+                    var width = $(`#id_QuoteId-${edit_id}-billedwidth`).val();
+                    width = unitOfMeasurement == 'mm' ? (width / mmft_convert)  : unitOfMeasurement == 'feet' ? width * feet_convert : (width / inchft_convert);
+                    width = width.toFixed(2)
+                    console.log('w', width)
+                }
+                else{
+                    var width = $(`#id_QuoteId-${edit_id}-Width`).val();
+                    width = unitOfMeasurement == 'mm' ? Math.ceil((width / mmft_convert) / 0.5) * 0.5 : unitOfMeasurement == 'feet' ? width * feet_convert : Math.ceil((width / inchft_convert) / 0.5) * 0.5;
+                    console.log('w', width)
+                }
+                
+                var quantity = $(`#id_QuoteId-${edit_id}-Quantity`).val();
+                var sum = Number(length) * Number(width) * Number(quantity)
+                $(`#id_QuoteId-${edit_id}-Total`).val(sum)
+                console.log(width, length);
+                    
+                    
+                    
+            }
+
+
+            if (split_id[0] == "id_Quoteid") {
+                if (split_id[2] == "Quantity" || split_id[2] == "Rate") {
+                    var quantity = $(`#id_Quoteid-${edit_id}-Quantity`).val();
+                    console.log("qnty", quantity)
+                    var rate = $(`#id_Quoteid-${edit_id}-Rate`).val();
+                    console.log("rate", rate)
+                    var sum = Math.round(Number(quantity) * Number(rate))
+                    $(`#id_Quoteid-${edit_id}-Total`).val(sum)
+                    console.log("SUM : ", sum)
+                }
+            }
+
+            if (split_id[0] == "id_Quote_id") {
+                if (split_id[2] == "Quantity" || split_id[2] == "Rate") {
+                    var quantity = $(`#id_Quote_id-${edit_id}-Quantity`).val();
+                    console.log("qnty", quantity)
+                    var rate = $(`#id_Quote_id-${edit_id}-Rate`).val();
+                    console.log("rate", rate)
+                    var sum = Math.round(Number(quantity) * Number(rate))
+                    $(`#id_Quote_id-${edit_id}-Total`).val(sum)
+                    console.log("SUM : ", sum)
+                }
+            }
+        });
+    
+    })
+    
+    $(document).ready(function () {
+    
+        const inchft_convert = 12
+        const mmft_convert = 304.8
+        const feet_convert = 1
+        $('.clearable-file-input > label').text("Delete");
+        $('.col-sm-10 > label').text("Delete")
+        $('#id_companyname').select2();
+        console.log("HELLO FORMS");
+
+
+        $('select[id*=ItemMasterIdMisc]:visible').each(function() {
+          var select_id =  $(this).attr('id')
+          var miscvalue =  $(this).find(":selected").text().toLowerCase();
+          miscitems = select_id.split('-')
+          console.log("idnew" ,miscvalue)
+          if(miscvalue == 'installation'){
+            $(`#id_Quote_id-${miscitems[1]}-Quantity`).addClass('disabled');
+          }
+        });
+
+
+        $('select[id^=id_Quote_id-][id$=-ItemMasterIdMisc]').change(function () {
+           var selectVal = $(this).find("option:selected").text();
+           console.log("SELECTED OPTION ", selectVal)
+           console.log('SELECTED OPTION new val', selectVal)
+           itemmiscid = $(this).attr('id')
+           console.log("SELECTED OPTION idid", itemmiscid)
+           itemmiscid = itemmiscid.split('-')
+           itemmiscid = itemmiscid[1]
+           selectVal = selectVal.toLowerCase();
+           if(selectVal == "installation"){
+                //console.log("SELECTED OPTION misc", (selectVal))
+            
+                $(`#id_Quote_id-${itemmiscid}-Quantity`).addClass('disabled');
+            }
+            else{
+                $(`#id_Quote_id-${itemmiscid}-Quantity`).removeClass("disabled")
+            }
+        });
+
+
+        /// For Line Item Already Present In DOM
+        $("input[id$='Total']").addClass('disabled');
+        
+        console.log($('select[id^=id_QuoteId-][id$=-ItemMasterId]').length)
+        
+
+        var selectsOnDom = $('select[id^=id_QuoteId-][id$=-ItemMasterId]').length
+        for (itemid=0 ; itemid < selectsOnDom ; itemid++){
+            var newglassdata = $(`#id_QuoteId-${itemid}-ItemMasterId`).select2({
+                matcher: function (params, data) {
+                    if ($.trim(params.term) === '') {
+                        return data;
+                    }
+        
+                    keywords=(params.term).split(" ");
+        
+                    for (var i = 0; i < keywords.length; i++) {
+                        if (((data.text).toUpperCase()).indexOf((keywords[i]).toUpperCase()) == -1) 
+                        return null;
+                    }
+                    return data;
+                }
+            });
+        }
+
+        console.log($('select[id^=id_Quoteid-][id$=-ItemMasterid]').length)
+        var selectsOnFitting = $('select[id^=id_Quoteid-][id$=-ItemMasterid]').length
+        for (fittingsid=0 ; fittingsid < selectsOnFitting ; fittingsid++){
+            var newfittingdata = $(`#id_Quoteid-${fittingsid}-ItemMasterid`).select2({
+                matcher: function (params, data) {
+                    if ($.trim(params.term) === '') {
+                        return data;
+                    }
+        
+                    keywords=(params.term).split(" ");
+        
+                    for (var i = 0; i < keywords.length; i++) {
+                        if (((data.text).toUpperCase()).indexOf((keywords[i]).toUpperCase()) == -1) 
+                        return null;
+                    }
+                    return data;
+                }
+            });
+        }
+        $('input').on('input', function (event) {
+    
+        console.log("INPUT INPUT")
+    
+        var current_id = event.target.id;
+        var split_id = current_id.split("-")
+        console.log("CHANGING INPUT : ", split_id)
+        var edit_id = split_id[1]
+    
+        if (split_id[2] == "billedlength" || split_id[2] == "billedwidth" || split_id[2] == "Length" || split_id[2] == "Width" || split_id[2] == "Quantity") {
+            var unitOfMeasurement = $(`#id_QuoteId-${edit_id}-UnitOfMeasurement`).val();
+            if ($(`#id_QuoteId-${edit_id}-billedlength`).val() != ''){
+                var length = $(`#id_QuoteId-${edit_id}-billedlength`).val();
+                length = unitOfMeasurement == 'mm' ? (length / mmft_convert)  : unitOfMeasurement == 'feet' ? length * feet_convert : (length / inchft_convert);
+                length = length.toFixed(2)
+                console.log('l', length)
+            }
+            else if($(`#id_QuoteId-${edit_id}-billedlength`).val() == ''){
+                var length = $(`#id_QuoteId-${edit_id}-Length`).val();
+                length = unitOfMeasurement == 'mm' ? Math.ceil((length / mmft_convert) / 0.5) * 0.5 : unitOfMeasurement == 'feet' ? length * feet_convert : Math.ceil((length / inchft_convert) / 0.5) * 0.5;
+                console.log('l', length)
+            }
+            if ($(`#id_QuoteId-${edit_id}-billedwidth`).val() != ''){
+                var width = $(`#id_QuoteId-${edit_id}-billedwidth`).val();
+                width = unitOfMeasurement == 'mm' ? (width / mmft_convert)  : unitOfMeasurement == 'feet' ? width * feet_convert : (width / inchft_convert);
+                width = width.toFixed(2)
+                console.log('w', width)
+            }
+            else if ($(`#id_QuoteId-${edit_id}-billedwidth`).val() == ''){
+                var width = $(`#id_QuoteId-${edit_id}-Width`).val();
+                width = unitOfMeasurement == 'mm' ? Math.ceil((width / mmft_convert) / 0.5) * 0.5 : unitOfMeasurement == 'feet' ? width * feet_convert : Math.ceil((width / inchft_convert) / 0.5) * 0.5;
+                console.log('w', width)
+            }
+            
+            var quantity = $(`#id_QuoteId-${edit_id}-Quantity`).val();
+            var sum = Number(length) * Number(width) * Number(quantity)
+            $(`#id_QuoteId-${edit_id}-Total`).val(sum)
+            
+            
+        }
+        if (split_id[0] == "id_Quoteid") {
+            if (split_id[2] == "Quantity" || split_id[2] == "Rate") {
+                var quantity = $(`#id_Quoteid-${edit_id}-Quantity`).val();
+                console.log("FITTINGS QTY INPUT", quantity)
+                console.log("qnty", quantity)
+                var rate = $(`#id_Quoteid-${edit_id}-Rate`).val();
+                console.log("rate", rate)
+                var sum = Math.round(Number(quantity) * Number(rate))
+                $(`#id_Quoteid-${edit_id}-Total`).val(sum)
+                console.log("SUM : ", sum)
+                //   });
+            }
+            
+        }
+        if (split_id[0] == "id_Quote_id") {
+            if (split_id[2] == "Quantity" || split_id[2] == "Rate") {
+                var quantity = $(`#id_Quote_id-${edit_id}-Quantity`).val();
+                console.log("qnty", quantity)
+                var rate = $(`#id_Quote_id-${edit_id}-Rate`).val();
+                console.log("rate", rate)
+                var sum = Math.round(Number(quantity) * Number(rate))
+                $(`#id_Quote_id-${edit_id}-Total`).val(sum)
+                console.log("SUM : ", sum)
+            }
+    
+        }
+        }); 
+    
+    });        
+    </script>
+    {% endblock %}
+    <div class="row">
+        <div {% if '/projects' in request.path %} class="col-md-9" {% else %} class="col-md-12" {% endif %}>
+            <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post"
+                id="{{ opts.model_name }}_form" novalidate>{% csrf_token %}{% block form_top %}{% endblock %}
+
+                {% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1" />{% endif %}
+                {% if to_field %}<input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}" />{% endif %}
+                {% if save_on_top %}{% block submit_buttons_top %}{% submit_row %}{% endblock %}{% endif %}
+                <div>
+                    {{ Qform.as_p }}
+                    {{ Gform.as_p }}
+                    {{ Mform.as_p }}
+                </div>
+                {% if errors %}
+                <p class="errornote">
+                    {% if errors|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please
+                    correct the errors below." %}{% endif %}
+                </p>
+                {{ adminform.form.non_field_errors }}
+                {% endif %}
+
+                {% block field_sets %}
+                {% for fieldset in adminform %}
+                {% include "admin/includes/fieldset.html" %}
+                {% endfor %}
+                {% endblock %}
+
+                {% block after_field_sets %}{% endblock %}
+
+                {% block inline_field_sets %}
+                
+                {% for inline_admin_formset in inline_admin_formsets %}
+                    {% include inline_admin_formset.opts.template %}
+                {% endfor %}
+                
+                {% endblock %}
+
+                {% block after_related_objects %}{% endblock %}
+
+                {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+
+                {% block admin_change_form_document_ready %}
+                <script type="text/javascript" id="django-admin-form-add-constants"
+                    src="{% static 'admin/js/change_form.js' %}" {% if adminform and add %}
+                    data-model-name="{{ opts.model_name }}" {% endif %}>
+                    </script>
+                {% endblock %}
+
+                {# JavaScript for prepopulated fields #}
+                {% prepopulated_fields_js %}
+
+            </form>
+        </div>
+        {% if '/projects/' in request.path %}
+        <div class="col-md-3">
+            <div class="card card-info">
+                <div class="card-header bg-primary add-task-header">
+                    <h3 class="card-title">Add Task </h3>
+                    <a class="related-widget-wrapper-link add-related" id="add_task" href="/DecorStoreApp/tasks/add/?_to_field=id&amp;_popup=1" title="Add Task"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+                </div>    
+                
+            </div>
+            {% for inline_admin_formset in inline_admin_formsets %}
+                {% include inline_admin_formset.opts.template %}
+            {% endfor %}
+             
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load i18n admin_urls adminlte_helpers static admin_list %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.css' %}">
+{% endblock %}
+
+{% if result_hidden_fields %}
+<div class="hiddenfields">{# DIV for HTML validation #}
+  {% for item in result_hidden_fields %}{{ item }}{% endfor %}
+</div>
+{% endif %}
+{% if results %}
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body table-responsive">
+        <table id="result_list" class="table table-hover table-striped  table-head-fixed">
+          <thead>
+            <tr>
+              {% comment %} <form class="search-box">
+                <label style="background: none; border: none; padding: 0"><span id="PI-NO-label" style="font-size: 16px; vertical-align: -1px; color: #9B9B9B" class="material-symbols-outlined">Search By PI No: &nbsp;</span></label>
+                <input id="PI-NO" style="vertical-align: 4px; width: 255px;" type="search" name="focus" placeholder="Search By PI Number" id="search-input" value="">
+              </form> {% endcomment %}
+              {% for header in result_headers %}            
+              <th >
+                  <span>{{ header.text|capfirst }}</span>
+              </th>{% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for result in results %}
+            {% if result.form.non_field_errors %}
+            <tr>
+              <td colspan="{{ result|length }}">{{ result.form.non_field_errors }}</td>
+            </tr>
+            {% endif %}
+            <tr class="{% cycle 'row1' 'row2' %}">{% for item in result %}{{ item }}{% endfor %}</tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+              <tr>
+                {% for header in result_headers %}
+                <th>
+                    <span>{{ header.text|capfirst }}</span>
+                </th>{% endfor %}
+              </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+

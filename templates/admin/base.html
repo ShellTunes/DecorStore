@@ -1,0 +1,97 @@
+{% extends 'adminlte/base.html' %}
+{% load static i18n %}
+
+{% block extra_head %}
+{{ block.super }}
+
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" type="text/css"
+    href="{% block stylesheet_rtl %}{% static 'admin/css/rtl.css' %}{% endblock %}" />
+{% endif %}
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/admin_custom_style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/global.css' %}" />
+{% comment %}
+<link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css"> {% endcomment %}
+<script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/globalfilter.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/mymodel.js' %}"></script>
+
+{% comment %} <script type="text/javascript" src="{% static 'admin/js/quotemodel.js' %}"></script> {% endcomment %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var hide = true;
+
+        $('#result_list td').each(function () {
+            var td_content = $(this).text();
+
+            if (td_content != "") {
+                hide = false;
+            }
+        })
+
+        if (hide) {
+            $('#result_list_wrapper').hide();
+        }
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.input-group-sm').hide();
+
+    });
+</script>
+<script type='text/javascript'>
+    (function ($) {
+        $(document).ready(function () {
+            console.log("JQUERY LOADED")
+            //  var text =  $("#result_list .field-Measurement").text();
+            //  console.log(text)
+            //$("#result_list td:not(:None)").show(); 
+        })
+    })
+</script>
+{% block extrastyle %}{% endblock %}
+{% block extrahead %}{% endblock %}
+{% block blockbots %}
+<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+{% endblock %}
+
+{% comment %} {% block nav_header %}
+{% include 'admin/lib/_main_header.html' %}
+{% endblock %} {% endcomment %}
+
+{% comment %} {% block nav_sidebar %}
+{% include 'admin/lib/_main_sidebar.html' %}
+{% endblock %} {% endcomment %}
+
+{% block content_header %}
+<section class="content-header">
+    <div class="container-fluid">
+        {% block breadcrumbs %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'admin:index' %}"><i class="fas fa-tachometer-alt"></i> {% trans
+                    'Home' %}</a></li>
+            {% if title %} {{ title }}{% endif %}
+        </ol>
+        {% endblock %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block content_block_wrap %}
+
+{% block content %}
+{% block object-tools %}{% endblock %}
+{{ content }}
+{% block sidebar %}{% endblock %}
+{% endblock %}
+
+
+{% endblock %}

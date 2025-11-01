@@ -1,0 +1,16 @@
+input[type=date], input[type=datetime-local], 
+input[type=month], input[type=time] {
+    border: 1px solid #999!important;
+    border-radius: 4px;
+    padding-left: 9px;
+    height: 38px;
+    margin-left: -85px;
+}
+
+li.breadcrumb-item {
+    display: none;
+}
+
+div#example_filter {
+    display: none;
+}

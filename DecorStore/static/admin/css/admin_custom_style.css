@@ -1,0 +1,399 @@
+#id_client {
+    width: 250px;
+}
+
+#id_measurement_staff {
+    width: 250px;
+}
+
+
+
+#id_installation_staff {
+    width: 250px;
+}
+
+.inline-related.empty-form.last-related {
+    display: none;
+}
+
+
+b, strong {
+    font-size: 21px;
+}
+
+.inline_label {
+    font-size: 21px;
+}
+
+.inline-deletelink {
+    font-size: 21px;
+}
+
+.vCheckboxLabel.inline {
+    font-size: 16px;
+}
+
+
+#changelist-filter li.selected a {
+    color: #fff;
+    background-color: green;
+    /* display: none; */
+}
+
+#changelist-filter ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 0px;
+    margin-bottom: 0px!important;
+}
+
+#changelist-filter ul > li > a {
+    background: rgba(0,0,0,0.5);
+    line-height: 1;
+    overflow: hidden;
+    border: none!important;
+    margin: auto 0!important;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 5px!important;
+    font-size: 0.9em;
+    border-radius: 5px;
+    color: #fff;
+}
+
+#changelist-filter ul > li {
+    margin-right: 10px;
+}
+
+/* #changelist-filter li.selected {
+    display: none;
+} */
+
+#changelist-filter h3 {
+    margin-bottom: 0px!important;
+}
+
+.sidebar {
+    /* position: fixed; */
+    width: 250px;
+    height: auto;
+    
+}
+p.file-upload input[type="file"] {
+    height: 200px;
+    width: 350px;
+    text-align: center;
+    border: 3px dashed #ccc;
+    padding: 80px;
+    /* background: #999; */
+    z-index:-99999999999999;
+}
+
+
+input[type="file"] {
+    height: 200px;
+    width: 350px;
+    text-align: right;
+    border: 3px dashed #ccc;
+    padding: 70px;
+    background: #999;
+    z-index:-99999999999999;
+}
+
+input[type="file"]:before {
+    content: "Drag & Drop to Upload File or";
+    display: block;
+    font-size: 1.4em;
+    position: relative;
+    text-align: center;
+    color: #f3f3f3;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 60px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.p-2{
+    justify-content: flex-end;
+}
+
+
+
+.popup #content {
+    padding: 20px;
+}
+
+.popup #container {
+    min-width: 0;
+}
+
+.popup #header {
+    padding: 10px 20px;
+}
+
+
+
+
+
+
+
+a#add_task img {
+    height: 25px;
+    width: 25px;
+}
+.card-header.bg-primary.add-task-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-between;    
+}
+
+a#add_task {
+    height: 32px;
+    text-align: center;
+    width: 31%;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: #fff;
+}
+input[type = 'text'], select, textarea, .select2-container--admin-autocomplete.select2-container {
+    width: 50%!important;
+    line-height: 30px;
+    color:#444;    
+}
+.disabled {
+    border-color: 1px white !important;
+    background-color: #f8f7f7;
+    pointer-events: none;
+}
+
+input[type = 'text'], select, textarea {    
+    border: 1px solid #999!important;
+    border-radius: 4px;
+    padding-left: 9px;    
+}
+
+input[type = 'text'], select {      
+    height: 36px;
+}
+
+
+.select2-container .select2-selection--single{
+    height: 36px!important;
+    
+}
+
+.select2-container--admin-autocomplete .select2-selection--single{
+    border: 1px solid #999!important;
+    border-radius: 4px;
+}
+span.date-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.calendarbox, .clockbox {
+    margin: 5px auto;
+    font-size: 12px;
+    width: 19em;
+    text-align: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
+    overflow: hidden;
+    position: relative;
+}
+
+.calendarbox .calendarnav-previous, .calendarbox .calendarnav-next {
+    display: block;
+    position: absolute;
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    text-indent: -9999px;
+    padding: 0;
+}
+
+.calendarnav-previous {
+    left: 10px;
+    background: url(../img/calendar-icons.svg) 0 0 no-repeat;
+}
+
+.calendarnav-next {
+    right: 10px;
+    background: url(../img/calendar-icons.svg) 0 -30px no-repeat;
+}
+
+.calendar {
+    margin: 0;
+    padding: 0;
+}
+
+.calendar-shortcuts {
+    background: white;
+    font-size: 11px;
+    line-height: 11px;
+    border-top: 1px solid #eee;
+    padding: 8px 0;
+    color: #ccc;
+}
+
+
+.calendar-cancel {
+    margin: 0;
+    padding: 4px 0;
+    font-size: 12px;
+    background: #eee;
+    border-top: 1px solid #ddd;
+    color: #333;
+}
+
+.datetimeshortcuts .date-icon {
+    background: url(../img/icon-calendar.svg) 0 0 no-repeat;
+    top: -1px;
+}
+
+.datetimeshortcuts .clock-icon, .datetimeshortcuts .date-icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    overflow: hidden;
+}
+
+.calendar td.nonday {
+    background: #f8f8f8;
+}
+
+.calendar td {
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    padding: 0;
+    border-top: 1px solid #eee;
+    border-bottom: none;
+}
+
+.calendar td a, .timelist a {
+    display: block;
+    font-weight: 400;
+    padding: 6px;
+    text-decoration: none;
+    color: #444;
+}
+
+.calendar caption, .calendarbox h2 {
+    margin: 0;
+    text-align: center;
+    border-top: none;
+    background: #f5dd5d;
+    font-weight: 700;
+    font-size: 12px;
+    color: #333;
+}
+
+.calendar th {
+    padding: 8px 5px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+}
+
+.calendar table {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    background: white;
+    width: 100%;
+}
+
+.module table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+span.date-icon:before {
+    width: 25px;
+    height: 25px;
+    content: "\f073";
+    font-family: 'Font Awesome 5 Free';
+}
+
+span.clock-icon:before {
+    width: 25px;
+    height: 25px;
+    content: "\f017";
+    font-family: 'Font Awesome 5 Free';
+}
+
+p.datetime {font-size: 0;}
+p.datetime input{font-size: 16px; margin-bottom: 1em;}
+p.datetime .datetimeshortcuts{font-size: 16px;}
+
+#projects-group table .form-row {
+    border:1px solid #ccc;
+    margin: .3em;
+    border-radius: 3px;
+}
+div#projects-group table thead tr {
+    display: none;
+}
+#projects-group table .form-row tr#projects-empty {
+    display: none!important;
+}
+tr.add-row a{
+    display: none!important;
+}
+tr#projects-empty {
+    display: none!important;
+}
+#projects-group table .form-row td.delete{
+    display:none;
+}
+#projects-group table .form-row input[type = 'text'], #projects-group select, #projects-group textarea, #projects-group table .form-row .select2-container--admin-autocomplete.select2-container {
+    width: 98%!important;
+    
+}
+.dynamic-projects{
+    display: none!important;
+}
+#projects-group table .form-row{
+    display: flex;
+    flex-direction: column;
+ 
+}
+#projects-group  fieldset.module h2{ 
+    display :none;
+}
+#projects-group table .form-row textarea{
+
+    height: 58px;
+    max-height: 500px;
+}
+
+#projects-group table .form-row textarea, #projects-group table .form-row input[type='text'], #projects-group table .form-row select{
+    margin: .5em;
+    border:0px solid!important;
+    pointer-events: none; 
+    appearance: none;
+}
+
+#projects-group table .form-row .related-widget-wrapper-link{
+    display: none;
+}
+
+#projects-group table .form-row span.datetimeshortcuts {
+    display: none;
+}
+
+span#select2-id_client-container {
+    width: 80%;
+}

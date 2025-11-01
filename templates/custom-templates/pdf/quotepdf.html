@@ -1,0 +1,2418 @@
+{% load static %}
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{data.0.Pino}}_{{data.0.client}}</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-indent: 0;
+        }
+
+        .s1 {
+            color: #4F81BC;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14pt;
+        }
+
+        .s2 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+
+        .s3 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+
+        .s4 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14pt;
+            vertical-align: 2pt;
+        }
+
+        .s5 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+
+        .s6 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 9.5pt;
+        }
+
+        .s7 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+
+        .s8 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+
+        .s9 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 9.5pt;
+            vertical-align: -2pt;
+        }
+
+        .s10 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9.5pt;
+        }
+
+        .s11 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 9pt;
+        }
+
+        a {
+            color: #F7F7F7;
+            font-family: Verdana, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 72pt;
+        }
+
+        .s12 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9pt;
+        }
+
+        p {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 11.5pt;
+            margin: 0pt;
+        }
+
+        .h1,
+        h1 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 8pt;
+        }
+
+        .s13 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9.5pt;
+        }
+
+        .s14 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 10.5pt;
+        }
+
+        .s15 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 10.5pt;
+        }
+
+        .s16 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+
+        .s17 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 9.5pt;
+        }
+
+        .s18 {
+            color: black;
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9pt;
+        }
+
+        li {
+            display: block;
+        }
+
+        #l1 {
+            padding-left: 0pt;
+        }
+
+        {% comment %} #l1>li>*:first-child:before {
+            content: " ";
+            color: black;
+            font-family: Symbol, serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 10.5pt;
+        } {% endcomment %}
+
+        li {
+            display: block;
+        }
+
+        #l2 {
+            padding-left: 0pt;
+            counter-reset: d1 2;
+        }
+
+        {% comment %} #l2>li>*:first-child:before {
+            counter-increment: d1;
+            content: counter(d1, decimal)". ";
+            color: black;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #l2>li:first-child>*:first-child:before {
+            counter-increment: d1 0;
+        } {% endcomment %}
+
+        table,
+        tbody {
+            vertical-align: top;
+            overflow: visible;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            gap: 10px;
+        }
+      
+        .signature-column {
+        flex: 1;
+        text-align: center;
+        }
+    
+        .dash-line {
+            border: none;
+            border-top: 1px dashed black;
+            width: 80%; /* control the width inside the column */
+            margin: 0 auto 8px auto; /* center it */
+        }
+    
+        .label {
+        font-size: 14px;
+        }
+    </style>
+</head>
+
+<script>
+    console.log("JS LOADED")
+</script>
+
+<body>
+    <div style="font-size: 15px"><strong>{{data.0.header|safe}}</strong></div>
+    <table style="border-collapse:collapse;margin-left:6.175pt;border: 1pt solid black;" cellspacing="0">
+        <tr style="height:18pt">
+            <td style="width:265pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="19" rowspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <!-- <p style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><span><img width="110" height="49"
+                            style="object-fit: contain" alt="image" src="DecorStore/static/admin/img/DecorStorelogo.png" /></span></p> -->
+                <p class="s1"
+                    style="padding-top: 7pt;padding-left: 2pt;text-indent: 0pt;line-height: 16pt;text-align: left;">
+                    DECOR STORE</p>
+                <p class="s2" style="padding-left: 2pt;text-indent: 0pt;line-height: 7pt;text-align: left;">
+                    ARCHITECTURAL GLASS, UPVC DOORS &amp; WINDOWS</p>
+                <!-- <p class="s3" style="padding-left: 2pt;text-indent: 0pt;line-height: 9pt;text-align: left;">12, KAMLA
+                    NAGAR</p> -->
+                <p class="s3" style="padding-left: 2pt;padding-right: 85pt;text-indent: 0pt;text-align: left;">SILIGURI-734008</p>
+                <p class="s3" style="padding-left: 2pt;text-indent: 0pt;line-height: 9pt;text-align: left;">PH:
+                    +917894563210/+91457863210</p><br/>
+            </td>
+            <td style="width:263pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5"
+                    style="padding-top: 1pt;padding-left: 103pt;padding-right: 104pt;text-indent: 0pt;text-align: center;">
+                    Quotation</p>
+            </td>
+        </tr>
+        <tr style="height:40pt;border: none;">
+          <td
+          style="width:98pt;">
+          <p class="s6" style="padding-top: 5pt;text-indent: 0pt;text-align: left;">Customer :
+          </p>
+          <p class="s6" style="padding-top: 5pt;text-indent: 0pt;text-align: left;">
+            Contact Number :</p>
+      </td>
+       <td
+          style="width:151pt;border: none;">
+          <p class="s8" style="padding-top: 5pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">{{data.0.client | title}}</p>
+          <p class="s8" style="padding-top: 5pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">{{data.0.clientPhoneNo}}</p>
+      </td>
+      
+      
+          
+      
+  </tr>
+  
+  <tr style="height:40pt;">
+    <td style="width:98pt;border-top-style:solid;border-top-width:1pt;border:none;padding-top: 5pt"
+    rowspan="2">
+    
+    <p class="s7" style="text-indent: 0pt;padding-top: 6pt;text-align: left;">Interior Name</p>
+    <p style="text-indent: 0pt;text-align: left;"><br /></p>
+    <p class="s7" style="text-indent: 0pt;padding-top: 4pt;text-align: left;">Address</p>
+    <p style="text-indent: 0pt;text-align: left;"><br></p>
+    {% comment %} <p class="s6" style="text-indent: 0pt;line-height: 138%;text-align: left;"><br></p>  {% endcomment %}
+    <p class="s6" style="text-indent: 0pt;line-height: 138%;text-align: left;">Person Responsible
+    </p>
+</td>
+{% if data.0.interior_name != '' %}
+{% if data.0.staffname != '' %}
+<td style="width:151pt;border: none;padding: 5pt;"
+    rowspan="2">
+    
+    <p style="display: flex;padding-left: 5pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;text-align: left;">{{data.0.interior_name}}</p>
+    
+    <p class="s8" style="text-indent: 0pt;text-align: left;"><br /></p>
+    <p  style="display: flex;padding-left: 5pt;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;text-align: left;">{{data.0.clientaddress}}</p>
+    
+    {% comment %} <p style="text-indent: 0pt;text-align: left;"><br></p> {% endcomment %}
+    <p class="s6" style="text-indent: 0pt;line-height: 138%;text-align: left;"><br></p> 
+    <p style="padding-left: 5pt;display: flex;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;line-height: 138%;text-align: left;">{{data.0.staffname | title}} {{data.0.staffnumber}}
+    </p>
+    
+</td>
+{% endif %}
+{% endif %}
+{% if data.0.interior_name != '' %}
+{% if data.0.staffname == '' %}
+<td style="width:151pt;border: none;padding: 5pt;"
+    rowspan="2">
+    
+    <p style="padding-left: 5pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;text-align: left;">{{data.0.interior_name}}</p>
+    
+    <p class="s8" style="text-indent: 0pt;text-align: left;"><br /></p>
+    <p  style="padding-bottom: 18pt;padding-left: 5pt;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;text-align: left;">{{data.0.clientaddress}}</p>
+    
+    {% comment %} <p style="text-indent: 0pt;text-align: left;"><br></p> {% endcomment %}
+    <p class="s6" style="text-indent: 0pt;line-height: 138%;text-align: left;"><br></p> 
+    <p style="padding-left: 5pt;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;line-height: 138%;text-align: left;">{{data.0.staffname | title}} {{data.0.staffnumber}}
+    </p>
+    
+</td>
+{% endif %}
+{% endif %}
+{% if data.0.interior_name == '' %}
+{% if data.0.staffname != '' %}
+<td style="width:151pt;border: none;padding: 5pt;"
+    rowspan="2">
+    
+    <p style="padding-left: 5pt;font-size: 10pt;font-weight: normal;font-style: normal;padding-bottom: 16pt;text-indent: 0pt;text-align: left;">{{data.0.interior_name}}</p>
+    
+    <p class="s8" style="text-indent: 0pt;text-align: left;"><br /></p>
+    <p  style="padding-top: 26pt;padding-left: 5pt;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;text-align: left;">{{data.0.clientaddress}}</p>
+    
+    {% comment %} <p style="text-indent: 0pt;text-align: left;"><br></p> {% endcomment %}
+    <p class="s6" style="text-indent: 0pt;line-height: 138%;text-align: left;"><br></p> 
+    <p style="padding-top: 14pt;padding-left: 5pt;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;line-height: 138%;text-align: left;">{{data.0.staffname | title}} {{data.0.staffnumber}}
+    </p>
+    
+</td>
+{% endif %}
+{% endif %}
+{% if data.0.interior_name == '' %}
+{% if data.0.staffname == '' %}
+<td style="width:151pt;border: none;padding: 5pt;"
+    rowspan="2">
+    
+    <p style="padding-left: 5pt;font-size: 10pt;font-weight: normal;font-style: normal;padding-bottom: 16pt;text-indent: 0pt;text-align: left;">{{data.0.interior_name}}</p>
+    
+    <p class="s8" style="text-indent: 0pt;text-align: left;"><br /></p>
+    <p  style="padding-left: 5pt;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;text-align: left;">{{data.0.clientaddress}}</p>
+    
+    {% comment %} <p style="text-indent: 0pt;text-align: left;"><br></p> {% endcomment %}
+    <p class="s6" style="text-indent: 0pt;line-height: 138%;text-align: left;"><br></p> 
+    <p style="padding-top: 14pt;padding-left: 5pt;padding-right: 10pt;font-size: 10pt;font-weight: normal;font-style: normal;text-indent: 0pt;line-height: 138%;text-align: left;">{{data.0.staffname | title}} {{data.0.staffnumber}}
+    </p>
+    
+</td>
+{% endif %}
+{% endif %}
+</tr>
+        <tr style="height:22pt">
+            <td
+                style="width:133pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s6" style="padding-top: 4pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">PI. No:
+                   {{data.0.Pino}} </p>
+            </td>
+            <td style="width:132pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt"
+            colspan="18">
+            <p class="s11" style="padding-left: 1pt;text-indent: 0pt;text-align: left;"></p>
+        </td>
+            
+        </tr>
+        <tr style="height:22pt">
+            <td
+                style="width:133pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s9" style="padding-left: 1pt;text-indent: 0pt;text-align: left;">PI. Date: <span
+                        class="s10">{{data.0.pi_date}}</span></p>
+            </td>
+            <td style="width:132pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="18">
+                <p class="s11" style="padding-left: 1pt;text-indent: 0pt;text-align: left;">Area -  Sqft / Length -
+                  {% with data.0.quoteItemmaster|last as last %}
+                  {% if last.unit != 'feet' %}
+                   {{last.unit}} 
+                   {% endif %}
+                   {% endwith %}</p>
+            </td>
+            <td
+                style="width:72pt;border: none;">
+                {% comment %} <p class="s6" style="text-indent: 0pt;text-align: left;">Phone Number</p> {% endcomment %}
+            </td>
+            <td
+                style="width:191pt;border: none;">
+                {% comment %} <p class="s8" style="padding-left: 10pt;text-indent: 0pt;text-align: left;">{{data.0.staffnumber}}</p> {% endcomment %}
+            </td>
+        </tr>
+    </table>
+   
+<br>
+
+
+
+{% if data.0.quoteItemmaster != "" %}
+    <table style="border-collapse:collapse;margin-left:7.31875pt" cellspacing="0">
+        <tr style="height: 13pt">
+            <td
+              style="
+                width: 106pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 40pt;
+                  padding-right: 37pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: center;
+                  font-size: 10pt;
+                "
+              >
+                Name
+              </p>
+            </td>
+            <td
+              style="
+                width: 86pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 40pt;
+                  padding-right: 37pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: center;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 59pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="text-indent: 0pt; line-height: 11pt; text-align: center;font-size: 10pt;"
+              >
+                H
+              </p>
+            </td>
+            <td
+              style="
+                width: 58pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="text-indent: 0pt; line-height: 11pt; text-align: center;font-size: 10pt;"
+              >
+                W
+              </p>
+            </td>
+            <td
+              style="
+                width: 58pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 14pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                Qty
+              </p>
+            </td>
+            <td
+              style="
+                width: 45pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 12pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                Area
+              </p>
+            </td>
+            <td
+              style="
+                width: 44pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 7pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                Rate
+              </p>
+            </td>
+            <td
+              style="
+                width: 36pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 10pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                Per
+              </p>
+            </td>
+            <td
+              style="
+                width: 63pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 35pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                MateCost
+              </p>
+            </td>
+            <td
+              style="
+                width: 63pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-right: 3pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: right;
+                  font-size: 10pt;
+                "
+              >
+                Amount
+              </p>
+            </td>
+          </tr>
+        {% for groupedKey,groupedItem in data.0.grouped.items %}
+        <tr style="height:15pt">
+            <td
+          style="width: 522pt; border-top-style: solid; border-top-width: 1pt"
+          colspan="9"
+        >
+            <p class="s6" style="text-indent: 0pt; line-height: 11pt; text-align: left;">{{groupedKey}}</p>
+            </td>
+        </tr>
+       
+            {% for item in groupedItem %}
+           
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">G{{ forloop.counter }}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;">{{item.length}}</p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;">{{item.width}}</p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;">{{item.qty}}</p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.total}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: -4pt;text-indent: 0pt;text-align: right;">{{item.rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">sqft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.amount}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.amount}}</p>
+                </td>
+            </tr>
+            {% if item.polish == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.polishname}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.polisharea}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.polishRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.polishTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.polishTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.beveling1 == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.beveling1name}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.beveling1area}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.beveling1Rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.beveling1Total}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.beveling1Total}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.beveling2 == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.beveling2name}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.beveling2area}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.beveling2Rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.beveling2Total}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.beveling2Total}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.beveling3 == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.beveling3name}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.beveling3area}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.beveling3Rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.beveling3Total}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.beveling3Total}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.beveling4 == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 3pt;text-indent: 0pt;text-align: left;">{{item.beveling4name}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.beveling4area}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.beveling4Rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.beveling4Total}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.beveling4Total}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.beveling5 == 1 %}
+            <tr>
+                <td style="width:106pt;">
+                    <p class="s12" style="white-space: nowrap; padding-left: 3pt;text-indent: -2pt;text-align: left;">{{item.beveling5name}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 20pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.beveling5area}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: -4pt;text-indent: 0pt;text-align: right;">{{item.beveling5Rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.beveling5Total}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.beveling5Total}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.beveling6 == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.beveling6name}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.beveling6area}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.beveling6Rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.beveling6Total}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.beveling6Total}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.frosting == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.frostingname}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.frostingarea}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.frostingRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.frostingtotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.frostingtotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.printing == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.printingname}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.printingarea}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.printingRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.printingTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.printingTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.etching == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.etchingname}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.etchingarea}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.etchingRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.etchingTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.etchingTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.stroke == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.strokename}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.strokearea}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.strokeRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.strokeTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.strokeTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.crystal == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.crystalname}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.crystalarea}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.crystalRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.crystalTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.crystalTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.lacquered == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.lacqueredname}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: left;">{{item.lacqueredarea}}</p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.lacqueredRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.lacqueredTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.lacqueredTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.hole == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.holename}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;">{{item.holeqty}}</p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.holeRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.holeTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.holeTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.cutout == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.cutoutname}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;">{{item.cutoutqty}}</p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.cutoutRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.cutoutTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.cutoutTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.spacerhole == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.spacerholename}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;">{{item.spacerholeqty}}</p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.spacerholeRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.spacerholeTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.spacerholeTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.screwhole == 1 %}
+            <tr>
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{{item.screwholename}}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;">{{item.screwholeqty}}</p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.screwholeRate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">ft</p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;">{{item.screwholeTotal}}</p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.screwholeTotal}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if item.remarks != "" %}
+            <tr style="height:15pt">
+                <td
+              style="width: 522pt; border-top-style: solid; border-top-width: 1pt"
+              colspan="9"
+            >
+                <p class="s6" style="padding-left: 2pt;text-indent: 0pt; line-height: 11pt; text-align: left;">{{item.remarks}}</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        {% endfor %}
+           
+        {% with data.0.quoteItemmaster|last as last %}
+        <tr style="height:15pt">
+			
+            <td style="width:106pt">
+                <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"> </p>
+            </td>
+            <td style="width:59pt">
+                <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"> </p>
+            </td>
+            <td style="width:48pt">
+                <p class="s12" style="padding-left: 10pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            
+            <td style="width:118pt">
+                
+                <p class="s12" style="padding-left: 10pt;text-indent: 0pt;text-align: right;"><strong>Total</strong>
+                     </p>
+                
+            </td>
+            <td style="width:48pt">
+                <p class="s12" style="padding-left: 10pt;text-indent: 0pt;text-align: center;"><strong>{{last.totalqty}}</strong></p>
+            </td>
+            <td style="width:68pt">
+                <p class="s12" style="padding-left: 6pt;text-indent: 0pt;text-align: center;"><strong>{{last.glasstotal}}</strong> </p>
+            </td>
+            <td style="width:43pt">
+                <p class="s12" style="text-indent: 0pt;text-align: right;"> </p>
+            </td>
+            <td style="width:63pt">
+                <p class="s12" style="text-indent: 0pt;text-align: right;"> </p>
+            </td>
+            <td style="width:143pt">
+                <p class="s12" style="padding-left: 10pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            
+            <td style="width:113pt">
+                <p class="s12" style="padding-left: 28pt;text-indent: 0pt;text-align: right;"><strong>{{last.totalamount}}</strong></p>
+            </td>
+           
+        </tr>
+        {% endwith %}
+    </table>
+{% endif %}
+    {% if data.0.fittings != "" %}
+    <table style="border-collapse:collapse;margin-left:7.31875pt" cellspacing="0">
+        <tr style="height: 13pt">
+            <td
+              style="
+                width: 106pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 12pt;
+                  padding-right: 37pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: center;
+                  font-size: 10pt;
+                "
+              >
+                Name
+              </p>
+            </td>
+            <td
+              style="
+                width: 86pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 40pt;
+                  padding-right: 37pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: center;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 59pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="text-indent: 0pt; line-height: 11pt; text-align: center;font-size: 10pt;"
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 58pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="text-indent: 0pt; line-height: 11pt; text-align: left;font-size: 10pt;"
+              >
+              Qty
+              </p>
+            </td>
+            <td
+              style="
+                width: 58pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 14pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 45pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 12pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 44pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 12pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+              Rate
+              </p>
+            </td>
+            <td
+              style="
+                width: 36pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 10pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+              
+              </p>
+            </td>
+            <td
+              style="
+                width: 63pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 35pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 63pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-right: 3pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: right;
+                  font-size: 10pt;
+                "
+              >
+                Amount
+              </p>
+            </td>
+          </tr>
+        {% for fittinggroupKey,fittinggroupItem in data.0.fittinggroup.items %}
+        <tr style="height:15pt">
+            <td
+          style="width: 522pt; border-top-style: solid; border-top-width: 1pt"
+          colspan="9"
+        >
+            <p class="s6" style="text-indent: 0pt; line-height: 11pt; text-align: left;">{{fittinggroupKey}}</p>
+            </td>
+        </tr>
+            {% for item in fittinggroupItem %}
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">F{{ forloop.counter }}</p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:59pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:58pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;">{{item.Quantity}}</p>
+                </td>
+                <td style="width:48pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:55pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.Rate}}</p>
+                </td>
+                <td style="width:36pt">
+                    <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                
+                <td style="width:43pt">
+                    <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.total}}</p>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+           
+        {% with data.0.fittings|last as last %}
+        <tr style="height:15pt">
+                
+            <td style="width:106pt">
+                <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+            </td>
+            <td style="width:86pt">
+                <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong>Total </strong></p>
+            </td>
+            <td style="width:29pt">
+                <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:38pt">
+                <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong>{{last.totalqty}}</strong></p>
+            </td>
+            <td style="width:68pt">
+                <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:25pt">
+                <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:44pt">
+                <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong>{{last.totalarea}}</strong></p>
+            </td>
+            <td style="width:16pt">
+                <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;"></p>
+            </td>
+            
+            <td style="width:110pt">
+                <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:63pt">
+                <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{last.totalamount}}</strong></p>
+            </td>
+        </tr>
+        
+         
+              {% endwith %}
+    </table>
+     {% endif %}  
+     {% if data.0.misc != "" %} 
+    <table style="border-collapse:collapse;margin-left:7.31875pt" cellspacing="0">
+        <tr style="height: 13pt">
+            <td
+              style="
+                width: 106pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 12pt;
+                  padding-right: 37pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: center;
+                  font-size: 10pt;
+                "
+              >
+                Name
+              </p>
+            </td>
+            <td
+              style="
+                width: 86pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 40pt;
+                  padding-right: 37pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: center;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 59pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="text-indent: 0pt; line-height: 11pt; text-align: center;font-size: 10pt;"
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 58pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="text-indent: 0pt; line-height: 11pt; text-align: left;font-size: 10pt;"
+              >
+              Qty
+              </p>
+            </td>
+            <td
+              style="
+                width: 58pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 14pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 45pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 12pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 44pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 12pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+              Rate
+              </p>
+            </td>
+            <td
+              style="
+                width: 36pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 10pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+              
+              </p>
+            </td>
+            <td
+              style="
+                width: 63pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-left: 35pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: left;
+                  font-size: 10pt;
+                "
+              >
+                
+              </p>
+            </td>
+            <td
+              style="
+                width: 63pt;
+                border-top-style: solid;
+                border-top-width: 1pt;
+                border-left-style: solid;
+                border-left-width: 1pt;
+                border-bottom-style: solid;
+                border-bottom-width: 1pt;
+                border-right-style: solid;
+                border-right-width: 1pt;
+              "
+              bgcolor="#DCDCDC"
+            >
+              <p
+                class="s6"
+                style="
+                  padding-right: 3pt;
+                  text-indent: 0pt;
+                  line-height: 11pt;
+                  text-align: right;
+                  font-size: 10pt;
+                "
+              >
+                Amount
+              </p>
+            </td>
+        </tr>
+        
+        {% for miscroupKey,miscgroupItem in data.0.miscgroup.items %}
+          <tr style="height:15pt">
+              <td style="width: 522pt; border-top-style: solid; border-top-width: 1pt" colspan="9">
+              
+                <p class="s6" style="text-indent: 0pt; line-height: 11pt; text-align: left;">{{miscroupKey}}</p>
+              </td>
+          </tr>
+            {% for item in miscgroupItem %}
+              <tr>
+                  
+                  <td style="width:106pt">
+                      <p class="s12" style="padding-left: 0pt;text-indent: 0pt;text-align: left;">{{item.remarks|linebreaksbr }}</p>
+                  </td>
+                  <td style="width:86pt">
+                      <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                  </td>
+                  <td style="width:59pt">
+                      <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                  </td>
+                  <td style="width:58pt">
+                      <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;">{{item.qty}}</p>
+                  </td>
+                  <td style="width:48pt">
+                      <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                  </td>
+                  <td style="width:55pt">
+                      <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                  </td>
+                  <td style="width:44pt">
+                      <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;">{{item.rate}}</p>
+                  </td>
+                  <td style="width:36pt">
+                      <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;"></p>
+                  </td>
+                  
+                  <td style="width:43pt">
+                      <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;"></p>
+                  </td>
+                  <td style="width:63pt">
+                      <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">{{item.total}}</p>
+                  </td>
+              </tr>
+            {% endfor %}
+        {% endfor %}
+       
+       
+          
+        
+           
+        {% with data.0.misc|last as last %}
+        <tr style="height:15pt">
+                
+            <td style="width:106pt">
+                <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+            </td>
+            <td style="width:86pt">
+                <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong>Total </strong></p>
+            </td>
+            <td style="width:29pt">
+                <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:38pt">
+                <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong>{{last.totalqty}}</strong></p>
+            </td>
+            <td style="width:68pt">
+                <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:25pt">
+                <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:44pt">
+                <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong>{{last.totalarea}}</strong></p>
+            </td>
+            <td style="width:16pt">
+                <p class="s12" style="padding-left: 14pt;text-indent: 0pt;text-align: left;"></p>
+            </td>
+            
+            <td style="width:110pt">
+                <p class="s12" style="padding-right: 12pt;text-indent: 0pt;text-align: right;"></p>
+            </td>
+            <td style="width:63pt">
+                <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{last.totalamount}}</strong></p>
+            </td>
+        </tr>
+        
+         
+              {% endwith %}
+    </table>
+     {% endif %}   
+       
+        <hr>
+        <table style="display:flex; flex-direction:column; ">
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong></strong></p>
+                </td>
+                <td style="width:29pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:38pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:68pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:25pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                
+                
+                <td style="width:195pt">
+                    <p class="s12" style="text-indent: 0pt;text-align: right;"><strong>Total Amount before Discount:</strong></p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{data.0.total}}</strong></p>
+                </td>
+            </tr>
+            {% if data.0.igstvalue == 1 %}
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong></strong></p>
+                </td>
+                <td style="width:29pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:38pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:68pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:25pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                
+                
+                <td style="width:195pt">
+                    <p class="s12" style="text-indent: 0pt;text-align: right;"><strong>IGST(18%):</strong></p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{data.0.igst}}</strong></p>
+                </td>
+            </tr>
+            {% endif %}
+            {% if data.0.cgstvalue == 1 %}
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong></strong></p>
+                </td>
+                <td style="width:29pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:38pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:68pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:25pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                
+                
+                <td style="width:195pt">
+                    <p class="s12" style="text-indent: 0pt;text-align: right;"><strong>CGST(9%):</strong></p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{data.0.cgst}}</strong></p>
+                </td>
+            </tr>
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong></strong></p>
+                </td>
+                <td style="width:29pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:38pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:68pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:25pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                
+                
+                <td style="width:195pt">
+                    <p class="s12" style="text-indent: 0pt;text-align: right;"><strong>SGST(9%):</strong></p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{data.0.sgst}}</strong></p>
+                </td>
+            </tr>
+            {% endif %}
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong></strong></p>
+                </td>
+                <td style="width:29pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:38pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:68pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:25pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                
+                
+                <td style="width:195pt">
+                    <p class="s12" style="text-indent: 0pt;text-align: right;"><strong>Discount:</strong></p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{data.0.discount}}</strong></p>
+                </td>
+            </tr>
+            <tr style="height:15pt">
+                
+                <td style="width:106pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"></p>
+                </td>
+                <td style="width:86pt">
+                    <p class="s12" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><strong></strong></p>
+                </td>
+                <td style="width:29pt">
+                    <p class="s12" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:38pt">
+                    <p class="s12" style="padding-right: 20pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:68pt">
+                    <p class="s12" style="padding-right: 1pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                <td style="width:25pt">
+                    <p class="s12" style="padding-left: 18pt;padding-right: 1pt;text-indent: 0pt;text-align: right;"></p>
+                </td>
+                <td style="width:44pt">
+                    <p class="s12" style="padding-right: 4pt;text-indent: 0pt;text-align: right;"><strong></strong></p>
+                </td>
+                
+                
+                <td style="width:195pt">
+                    <p class="s12" style="text-indent: 0pt;text-align: right;"><strong>Total Amount After Discount:</strong></p>
+                </td>
+                <td style="width:63pt">
+                    <p class="s12" style="padding-right: 2pt;text-indent: 0pt;text-align: right;"><strong>{{data.0.discounttotal}}</strong></p>
+                </td>
+            </tr>
+        </table>
+        <p style="font-size: 9.5pt;padding-top: 3pt;text-indent: 0pt;text-align: right;"><span style='background-color: lightgray;'>Total Amount Debited to Buyer (Rounded Off)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.0.discounttotal}}</span></p>
+        <p style="font-size: 9.5pt;padding-left: 18pt;text-indent: 0pt;text-align: left;">Total Amount in Words : Rupees
+          {{data.0.number_in_words |title}} .</p>    
+    <p style="font-size: 9.5pt;padding-left: 18pt;text-indent: 0pt;text-align: left;">Notes</p>
+    <table style="border-collapse: collapse; margin-left: 12.12pt; margin-top: 20px; border: 1px solid black; height: 100pt;" cellspacing="0">
+        <tr>
+            <td style="width: 171pt; text-align: center; vertical-align: bottom; border: none;">
+                <div style="width: 80%; margin: 0 auto;">----------------------------------------------------</div>
+                <div style="font-size: 12px; font-weight: bold; margin-top: 10px;">Authorized Signatory</div>
+            </td>
+            <td style="width: 171pt; text-align: center; vertical-align: bottom; border: none;">
+                <div style="font-size: 12px; margin-top: 10px;">{{data.0.preparedby}}</div>
+                <div style="width: 80%; margin: 0 auto;">----------------------------------------------------</div>
+                <div style="font-size: 12px; font-weight: bold; margin-top: 10px;">Prepared By</div>
+            </td>
+            <td style="width: 171pt; text-align: center; vertical-align: bottom; border: none;">
+                <div style="width: 80%; margin: 0 auto;">----------------------------------------------------</div>
+                <div style="font-size: 12px; font-weight: bold; margin-top: 10px;">Customer's Acceptance Sign &amp; Seal</div>
+            </td>
+        </tr>
+    </table>
+    <h1 style="font-size: 9.5pt;padding-top: 1pt;padding-left: 18pt;text-indent: 0pt;text-align: left;">Terms And Conditions</h1>
+    {% comment %} <p style="text-indent: 0pt;text-align: left;"><br /></p> {% endcomment %}
+    <table style="border-collapse:collapse;margin-left:12.12pt;border: 1px solid black;" cellspacing="0">
+        <tr style = 'height: 220pt'>
+            <td style="width:516pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+               <div >{{data.0.terms|safe}} </div>
+            </td>
+        </tr>
+        <tr >
+            <td
+                style="width:171pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s17"
+                    style="padding-top: 3pt;padding-left: 4pt;padding-right: 4pt;text-indent: 0pt;text-align: center;">
+                    Material Received In Good Condition</p>
+            </td>
+            <td
+                style="width:151pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s17" style="padding-top: 3pt;padding-left: 38pt;text-indent: 0pt;text-align: left;">BANK
+                    DETAILS</p>
+            </td>
+            <td
+                style="width:194pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s17"
+                    style="padding-top: 3pt;padding-left: 39pt;padding-right: 39pt;text-indent: 0pt;text-align: center;">
+                    For GLASS DECOR</p>
+            </td>
+        </tr>
+        <tr style="height:95pt">
+            <td
+                style="width:171pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <p class="s5" style="padding-left: 4pt;padding-right: 3pt;text-indent: 0pt;text-align: center;">
+                    Receiver&#39;s Signature &amp; Seal</p>
+            </td>
+            <td
+                style="width:151pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s6"
+                    style="padding-top: 7pt;padding-left: 21pt;padding-right: 20pt;text-indent: 0pt;text-align: center;">
+                    NAME: GLASS DECOR BANK: ICICI BANK A/C NO: 387105000042</p><br>
+                <p class="s6" style="padding-left: 19pt;padding-right: 19pt;text-indent: 0pt;text-align: center;">
+                   IFSC CODE:ICIC0003871 BRANCH: SALUGARA, SILIGURI</p>
+            </td>
+            <td
+                style="width:194pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <p class="s5" style="padding-left: 39pt;padding-right: 39pt;text-indent: 0pt;text-align: center;">
+                    Authorized Signatory.</p>
+            </td>
+        </tr>
+    </table>
+    <p style="text-indent: 0pt;text-align: left;"></p>
+
+    
+    
+    
+    {% comment %} <p class="s18" style="padding-left: 26pt;text-indent: 0pt;text-align: left;">Prepared By: Checked By:</p> {% endcomment %}
+
+    {{data.0.diagramfile}}
+</body>
+
+</html>
