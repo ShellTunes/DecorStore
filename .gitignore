@@ -7,7 +7,7 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
-settings.py
+# settings.py
 DecorStore/settings.py
 DecorStoreApp/migrations/
 DecorStore/__pycache__/
