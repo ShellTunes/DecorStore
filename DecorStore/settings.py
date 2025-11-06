@@ -121,8 +121,8 @@ DATABASES = {
         'NAME': 'admin_decorstore',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '',
+        'USER': 'decoradmin',
+        'PASSWORD': 'Testing123!',
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
