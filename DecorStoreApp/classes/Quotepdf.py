@@ -9,7 +9,7 @@ from django.conf import settings
 import PyPDF2
 from django.template.loader import get_template
 from django.template import Context
-import xhtml2pdf as pisa
+# import xhtml2pdf as pisa
 # import cStringIO as StringIO
 from io import StringIO
 import cgi

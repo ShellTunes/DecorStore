@@ -8,7 +8,7 @@ from django.utils.safestring import mark_safe
 from django.conf import settings
 from django.template.loader import get_template
 from django.template import Context
-import xhtml2pdf as pisa
+# import xhtml2pdf as pisa
 from DecorStoreApp.models import *
 import json
 import xlwt
